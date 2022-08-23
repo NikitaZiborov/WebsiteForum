@@ -1,0 +1,105 @@
+﻿@model Tuple<User, Questions, List<Answers>>
+@{
+    ViewBag.Title = "Forum";
+}
+<style>
+    h1 {
+        background-color: #73c5cb;
+        padding-left: 10px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+    }
+
+    .DisplayText {
+        padding: 0px 10px 10px 10px;
+        font-size: large;
+    }
+
+    .DisplayTime {
+        padding: 10px 10px 0px 10px;
+        font-size: small;
+    }
+
+    .DisplayAuthor {
+        padding: 10px 10px 10px 10px;
+        font-size: small;
+        float: right;
+    }
+
+    .BottomLine {
+        background-color: #73c5cb;
+        padding: 0px 10px 0px 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 30px;
+        margin-bottom: 30px;
+    }
+
+    .AnswerTextBox {
+        width: 500px;
+        padding: 10px;
+        height: auto;
+    }
+
+    .PostAnswer {
+        margin-top: 10px;
+        background-color: #c8e9ee;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    button:hover {
+        background-color: #73c5cb;
+    }
+</style>
+
+<body>
+    <div>
+        <h1>Question</h1>
+    </div>
+    <div style="background-color: #c8e9ee;">
+        <div class="DisplayAuthor">
+            Author: @Html.DisplayFor(x => x.Item1.NickName)
+        </div>
+        <div class="DisplayTime">
+            @Html.DisplayFor(d => d.Item2.PostDate)
+        </div>
+        <div class="DisplayText">
+            @Html.DisplayFor(x => x.Item2.QuestionText)
+        </div>
+    </div>
+    <div class="BottomLine"></div>
+
+    <div class="DisplayText">
+        @foreach (var item in Model.Item3)
+        {
+            @Html.DisplayName(item.AnswerText)
+            <br />
+            <br />
+        }
+    </div>
+
+    @using (Html.BeginForm("CreateAnswer", "Forum", FormMethod.Post))
+    {
+        <div>
+            @Html.TextArea("answerText", new { @class = "AnswerTextBox" })
+        </div>
+        <button class="PostAnswer" type="submit">Post Answer</button>
+    }
+</body>
+
+<script>
+    const tx = document.getElementsByTagName("textarea");
+    for (let i = 0; i < tx.length; i++) {
+        tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight))
+        tx[i].addEventListener("input", OnInput, false);
+    }
+
+    function OnInput() {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
+    }
+</script>

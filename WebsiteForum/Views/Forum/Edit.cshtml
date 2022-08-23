@@ -1,0 +1,54 @@
+﻿@model WebsiteForum.Models.Questions
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    h1 {
+        background-color: #73c5cb;
+        padding-left: 10px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+    }
+
+    .PostAnswer {
+        margin-top: 10px;
+        background-color: #c8e9ee;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    .AnswerTextBox {
+        width: 500px;
+        padding: 10px;
+        height: auto;
+    }
+</style>
+<body>
+    <div>
+        <h1>Edit my Question</h1>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Forum", FormMethod.Post))
+    {
+        <div>
+            @Html.TextArea("TextQuestion", new { @class = "AnswerTextBox" })
+        </div>
+        <button class="PostAnswer" type="submit">Edit my Question</button>
+    }
+</body>
+
+<script>
+    const tx = document.getElementsByTagName("textarea");
+    for (let i = 0; i < tx.length; i++) {
+        tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight))
+        tx[i].addEventListener("input", OnInput, false);
+    }
+
+    function OnInput() {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
+    }
+</script>

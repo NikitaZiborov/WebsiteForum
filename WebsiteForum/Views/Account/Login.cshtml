@@ -1,0 +1,42 @@
+﻿@model WebsiteForum.Models.LoginModel
+@{
+    ViewBag.Title = "Login account";
+}
+<style>
+    body {
+        background-image: url("../Photos/RegisterForum.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .container
+    {
+        
+    }
+</style>
+
+<body w>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card" style="min-width: fit-content;" >
+                    <h2 class="card-title text-center">Login</h2>
+                    <div class="card-body py-md-4">
+                        <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+                            <div class="form-group">
+                                <input type="email" class="form-control" asp-for="Email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+                            </div>
+                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                <input type="submit" value="Enter the account" class="btn btn-outline-dark" />
+                                <input type="submit" class="btn btn-outline-dark" value="Registration" asp-action="Register" asp-controller="Account">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
