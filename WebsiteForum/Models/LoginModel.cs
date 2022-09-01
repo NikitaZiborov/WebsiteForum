@@ -4,6 +4,7 @@ namespace WebsiteForum.Models
 {
     public class LoginModel
     {
+        [Required(ErrorMessage = "Email is required.")]
         [RegularExpression(@"[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+", ErrorMessage = "Please enter valid email.")]
         public string Email { get; set; }
 

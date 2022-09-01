@@ -5,10 +5,10 @@ namespace WebsiteForum.Models
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "First Name is required.")]
+        [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "SurName is required.")]
+        [Required(ErrorMessage = "Last Name is required.")]
         public string SurName { get; set; }
         [Required(ErrorMessage = "NickName is required.")]
         public string NickName { get; set; }
@@ -16,8 +16,10 @@ namespace WebsiteForum.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:Day/Month/Year}" , ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> BirthDate { get; set; }
+        [Required(ErrorMessage = "Email Name is required.")]
         [RegularExpression(@"[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+", ErrorMessage = "Please enter valid email.")]
         public string Email { get; set; }
+
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

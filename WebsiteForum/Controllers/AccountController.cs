@@ -20,6 +20,10 @@ namespace WebsiteForum.Controllers
         {
             db = context;
         }
+        public IActionResult Thanks()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View(db.Questions.ToList());
@@ -83,7 +87,7 @@ namespace WebsiteForum.Controllers
 
                     await Authenticate(model.Email);
 
-                    return RedirectToAction("Index", "Account");
+                    return RedirectToAction("Thanks", "Account");
                 }
             }
             return View(model);

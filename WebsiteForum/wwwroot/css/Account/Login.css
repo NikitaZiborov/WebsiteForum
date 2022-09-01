@@ -1,0 +1,48 @@
+﻿body {
+    background-image: url("../../Photos/RegisterForum.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.login-form {
+    float: right;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius:10px;
+    margin-right:30px;
+}
+.sign-in-label {
+    text-align: center;
+}
+/* 
+.login-form {
+    width: fit-content;
+    border: 1px solid black;
+    padding: 30px;
+    float:right;
+    background-color:white;
+}
+
+
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: absolute;
+    top: -55px;
+    left: 0px;
+    right: 0px;
+    border: 6px solid #e6e6e6;
+}
+
+.user-input {
+    margin: 15px;
+}
+
+p{
+
+}
+*/
